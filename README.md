@@ -7,11 +7,17 @@ This repository contains a Verilog-based 4-stage pipelined RISC-V CPU (RV32I bas
 ## 📁 Project Structure
 
 riscv_myth_cpu/
+
 ├── src/ # Verilog modules
+
 ├── tb/ # Testbenches
+
 ├── mem/ # Instruction memory files (from RARS)
+
 ├── waveforms/ # .vcd waveform outputs
+
 ├── screenshots/ # Captured outputs from GTKWave and terminal
+
 
 ---
 
