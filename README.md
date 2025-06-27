@@ -60,6 +60,13 @@ Basic testbench to simulate:
 - Instruction fetch
 - Register file write & read
 
+### 📋 Description:
+
+- Simulates PC → Instruction Memory → Register File connection  
+- Includes clock generation, reset logic, and `$monitor` output  
+- Generates VCD file for waveform viewing in GTKWave
+
+---
 ## 🔧 Simulation Instructions
 
 ```bash
