@@ -73,3 +73,7 @@ Basic testbench to simulate:
 iverilog -o cpu_sim ./tb/tb_cpu.v ./src/pc.v ./src/instr_mem.v ./src/reg_file.v
 vvp cpu_sim
 gtkwave waveforms/day2.vcd
+```
+![Image](https://github.com/user-attachments/assets/57355935-f76e-4b90-af1d-43315d834535)
+
+![Image](https://github.com/user-attachments/assets/a78e418b-900d-43bd-9b4a-d2273d0f4612)
