@@ -1,10 +1,10 @@
-# 🚀 RISC-V MYTH CPU (4-stage Pipelined Core)
+#  RISC-V MYTH CPU (4-stage Pipelined Core)
 
 This repository contains a Verilog-based 4-stage pipelined RISC-V CPU (RV32I base), inspired by the MYTH workshop. It is developed module-by-module with simulation support using Icarus Verilog and GTKWave.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 riscv_myth_cpu/
 
@@ -26,9 +26,9 @@ riscv_myth_cpu/
 
 ---
 
-# 📅 Day 1 — Program Counter (PC)
+#  Day 1 — Program Counter (PC)
 
-## ✅ Module: `pc.v`
+## Module: `pc.v`
 
 The program counter module increments the 32-bit address by 4 on each positive edge of the clock. It resets to 0 on a reset signal.
 
@@ -84,3 +84,8 @@ iverilog -o cpu_sim ./tb/tb_cpu.v ./src/pc.v ./src/instr_mem.v ./src/reg_file.v
 vvp cpu_sim
 gtkwave waveforms/day2.vcd
 ```
+![Image](https://github.com/user-attachments/assets/9cee6f94-01c9-429c-90d1-9d1058bda348)
+
+![Image](https://github.com/user-attachments/assets/42f62007-fd47-4088-a2f3-22e77e106694)
+
+![Image](https://github.com/user-attachments/assets/a0e35b8e-ca79-4ffc-8386-bbbc37c19065)
