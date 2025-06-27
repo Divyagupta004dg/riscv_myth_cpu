@@ -7,17 +7,17 @@ This repository contains a Verilog-based 4-stage pipelined RISC-V CPU (RV32I bas
 ## 📁 Project Structure
 
 riscv_myth_cpu/
-
-├── src/ # Verilog modules
-
-├── tb/ # Testbenches
-
-├── mem/ # Instruction memory files (from RARS)
-
-├── waveforms/ # .vcd waveform outputs
-
-├── screenshots/ # Captured outputs from GTKWave and terminal
-
+├── src/
+│   ├── pc.v
+│   ├── instr_mem.v
+│   └── reg_file.v
+├── tb/
+│   └── tb_cpu.v
+├── mem/
+│   └── prog.mem
+├── waveforms/
+│   └── day2.vcd
+├── README.md
 
 ---
 
@@ -41,3 +41,28 @@ Simulates PC for multiple clock cycles and generates waveform output.
 iverilog -o pc_sim ./tb/tb_pc.v ./src/pc.v
 vvp pc_sim
 gtkwave waveforms/pc.vcd
+---
+
+# 📅 Day 2 — Instruction Memory & Register File
+
+## ✅ Module 1: `instr_mem.v`
+
+Instruction memory that loads instructions from `mem/prog.mem`.
+
+## ✅ Module 2: `reg_file.v`
+
+32x32-bit register file with read/write and reset support.
+
+## 🧪 Testbench: `tb_cpu.v`
+
+Basic testbench to simulate:
+- PC increment
+- Instruction fetch
+- Register file write & read
+
+## 🔧 Simulation Instructions
+
+```bash
+iverilog -o cpu_sim ./tb/tb_cpu.v ./src/pc.v ./src/instr_mem.v ./src/reg_file.v
+vvp cpu_sim
+gtkwave waveforms/day2.vcd
