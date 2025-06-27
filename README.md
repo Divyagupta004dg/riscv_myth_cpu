@@ -7,10 +7,15 @@ This repository contains a Verilog-based 4-stage pipelined RISC-V CPU (RV32I bas
 ## 📁 Project Structure
 
 riscv_myth_cpu/
+
 ├── src/
+
 │   ├── pc.v
+
 │   ├── instr_mem.v
+
 │   └── reg_file.v
+
 ├── tb/
 │   └── tb_cpu.v
 ├── mem/
@@ -29,51 +34,53 @@ The program counter module increments the 32-bit address by 4 on each positive e
 
 ---
 
-## 🧪 Testbench: `tb_pc.v`
+## Testbench: `tb_pc.v`
 
 Simulates PC for multiple clock cycles and generates waveform output.
 
 ---
 
-## 🔧 Simulation Instructions
+## Simulation Instructions
 
 ```bash
 iverilog -o pc_sim ./tb/tb_pc.v ./src/pc.v
 vvp pc_sim
 gtkwave waveforms/pc.vcd
 ---
+```
+![Image](https://github.com/user-attachments/assets/57355935-f76e-4b90-af1d-43315d834535)
 
-# 📅 Day 2 — Instruction Memory & Register File
+![Image](https://github.com/user-attachments/assets/a78e418b-900d-43bd-9b4a-d2273d0f4612)
 
-## ✅ Module 1: `instr_mem.v`
+
+# Day 2 — Instruction Memory & Register File
+
+##  Module 1: `instr_mem.v`
 
 Instruction memory that loads instructions from `mem/prog.mem`.
 
-## ✅ Module 2: `reg_file.v`
+##  Module 2: `reg_file.v`
 
 32x32-bit register file with read/write and reset support.
 
-## 🧪 Testbench: `tb_cpu.v`
+##  Testbench: `tb_cpu.v`
 
 Basic testbench to simulate:
 - PC increment
 - Instruction fetch
 - Register file write & read
 
-### 📋 Description:
+### Description:
 
 - Simulates PC → Instruction Memory → Register File connection  
 - Includes clock generation, reset logic, and `$monitor` output  
 - Generates VCD file for waveform viewing in GTKWave
 
 ---
-## 🔧 Simulation Instructions
+##  Simulation Instructions
 
 ```bash
 iverilog -o cpu_sim ./tb/tb_cpu.v ./src/pc.v ./src/instr_mem.v ./src/reg_file.v
 vvp cpu_sim
 gtkwave waveforms/day2.vcd
 ```
-![Image](https://github.com/user-attachments/assets/57355935-f76e-4b90-af1d-43315d834535)
-
-![Image](https://github.com/user-attachments/assets/a78e418b-900d-43bd-9b4a-d2273d0f4612)
