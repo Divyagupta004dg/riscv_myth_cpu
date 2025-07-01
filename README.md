@@ -19,7 +19,14 @@ riscv_myth_cpu/
 │   └── day2.vcd
 ├── README.md
 
----
+riscv_myth_cpu/
+├── src/         # Verilog modules
+├── tb/          # Testbench files
+├── mem/         # Instruction memory (from RARS)
+├── waveforms/   # .vcd files to open in GTKWave
+├── tools/       # RARS .jar file
+├── riscpictures/# All waveform, terminal, and diagram screenshots
+└── README.md    # This file---
 
 # 📅 Day 1 — Program Counter (PC)
 
@@ -77,3 +84,27 @@ gtkwave waveforms/day2.vcd
 ![Image](https://github.com/user-attachments/assets/57355935-f76e-4b90-af1d-43315d834535)
 
 ![Image](https://github.com/user-attachments/assets/a78e418b-900d-43bd-9b4a-d2273d0f4612)
+# 🗓️ Day 3 — ALU, Control Unit, Pipeline Registers, and CPU Core
+
+## ✅ Modules Added:
+
+| File               | Description                                |
+|--------------------|--------------------------------------------|
+| `alu.v`            | Performs add, sub, and, or operations       |
+| `control.v`        | Decodes opcode and generates control lines  |
+| `pipeline_regs.v`  | Implements pipeline registers               |
+| `cpu_core.v`       | Top-level module connecting all components  |
+
+## 🔪 Final Testbench: `tb_cpu.v`
+
+- Simulates instruction flow through all pipeline stages
+- Uses Fibonacci `prog.mem` to test CPU behavior
+- Generates waveform in `fib.vcd`
+
+## 🔧 Simulation Instructions
+
+```bash
+iverilog -o fib_sim tb/tb_cpu.v src/*.v
+vvp fib_sim
+gtkwave waveforms/fib.vcd
+```
